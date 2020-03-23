@@ -27,7 +27,7 @@ module.exports = function (zipPath, opts, cb) {
   function openZip () {
     debug('opening', zipPath, 'with opts', opts)
 
-    yauzl.open(zipPath, {lazyEntries: true}, function (err, zipfile) {
+    yauzl.open(zipPath, {lazyEntries: true, validateEntrySizes: false}, function (err, zipfile) {
       if (err) return cb(err)
 
       var cancelled = false
